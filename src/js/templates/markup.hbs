@@ -1,0 +1,18 @@
+{{#each this}}
+  <div class='film-card'>
+    <div class='wrap'>
+      <a href='{{Youtube}}'>
+        <img src='{{poster_path}}' alt='{{title}}' loading='lazy' /></a></div>
+    <div class='info'>
+      <p class='info-item'>
+        {{title}}
+      </p>
+      <p class='info-item'>
+        {{release_date}}
+      </p>
+      <p class='info-item'>
+        {{vote_average}}
+      </p>
+    </div>
+  </div>
+{{/each}}
