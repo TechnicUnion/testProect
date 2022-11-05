@@ -32,8 +32,15 @@ function onAddToQueueBtnClick() {
 
 function onWachedBtnClick() {
   createGalleryList(JSON.parse(localStorage.getItem(STORAGE_WATCHED_KEY)));
+  toggleClassIsActive();
 }
 
 function onQueueBtnClick() {
   createGalleryList(JSON.parse(localStorage.getItem(STORAGE_QUEUE_KEY)));
+  toggleClassIsActive();
+}
+
+function toggleClassIsActive() {
+  wachedBtn.classList.toggle('is-active');
+  queueBtn.classList.toggle('is-active');
 }
