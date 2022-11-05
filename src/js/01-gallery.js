@@ -15,7 +15,7 @@ addToWachedBtn.addEventListener('click', onAddToWachedBtnClick);
 addToQueueBtn.addEventListener('click', onAddToQueueBtnClick);
 wachedBtn.addEventListener('click', onWachedBtnClick);
 queueBtn.addEventListener('click', onQueueBtnClick);
-console.log(watchedItems);
+
 createGalleryList(watchedItems);
 
 function createGalleryList(filmItems) {
@@ -31,12 +31,23 @@ function onAddToQueueBtnClick() {
 }
 
 function onWachedBtnClick() {
-  createGalleryList(JSON.parse(localStorage.getItem(STORAGE_WATCHED_KEY)));
+  if (!localStorage.getItem(STORAGE_WATCHED_KEY)) {
+    gallery.innerHTML = `<div><p class='info-item'>You have not watched any movie </p><img src='https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157__340.jpg' alt='screen' loading='lazy' /></a></div> 
+  </div>`;
+  } else {
+    createGalleryList(JSON.parse(localStorage.getItem(STORAGE_WATCHED_KEY)));
+  }
   toggleClassIsActive();
 }
 
 function onQueueBtnClick() {
-  createGalleryList(JSON.parse(localStorage.getItem(STORAGE_QUEUE_KEY)));
+  if (!localStorage.getItem(STORAGE_QUEUE_KEY)) {
+    gallery.innerHTML = `<div><p class='info-item'>View queue is empty</p><img src='https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157__340.jpg' alt='screen' loading='lazy' /></a></div> 
+  </div>`;
+  } else {
+    createGalleryList(JSON.parse(localStorage.getItem(STORAGE_QUEUE_KEY)));
+  }
+
   toggleClassIsActive();
 }
 
